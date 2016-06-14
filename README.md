@@ -1,6 +1,6 @@
 # Test-Cloud Appium java extensions
 
-Extension for producing test reports for Junit based appium tests.
+Extension for producing test reports for JUnit based appium tests.
 
 ## Instructions
 
