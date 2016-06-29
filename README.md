@@ -2,7 +2,7 @@
 
 Extension for producing test reports for JUnit based appium tests.
 
-## Instructions
+## Running tests locally and in Xamarin Test Cloud
 
 ### 1. Replace your Appium driver with the EnhancedIOSDriver or EnhancedAndroidDriver
 
@@ -61,6 +61,12 @@ Replace the way you _instantiate_ your driver, such that lines in the form of:
 
 Using these drivers will still allow you to run your tests locally without modifications.
 
+---
+
+
+
+## Running tests in Xamarin Test Cloud
+
 
 ### 2. Prepare your workspace folder
 
@@ -93,5 +99,14 @@ Notice there are three differences from when uploading Calabash tests:
 * Replace `test-cloud` with `test-cloud-appium`
 * Add `--test-parameters pipeline:appium`
 * XTC_ENDPOINT is given. This will make it run on the staging environment.
+
+
+### 4. Current Limitations
+
+* iOS tests do not work yet.
+* Only one Appium version supported: v. 1.4. 
+* Android 4.4+ only. Selendroid support is expected soon.
+* Automating UIWebView is not supported.
+* Tests that launch multiple apps or no apps are not currently supported. The test must launch precisely one app.
 
 
