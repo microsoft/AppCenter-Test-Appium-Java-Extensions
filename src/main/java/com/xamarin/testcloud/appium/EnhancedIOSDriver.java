@@ -79,8 +79,8 @@ public class EnhancedIOSDriver extends io.appium.java_client.ios.IOSDriver<WebEl
      * in test-cloud.
      * @param label text to insert into report.
      */
-    public void label(String event) {
+    public void label(String label) {
         DriverHelper.getScreenshotToWorkspace(execute(DriverCommand.SCREENSHOT).getValue(), OutputType.FILE, path ->
-                eventReporter.reportLabel(DriverHelper.sanitize(event), path.toAbsolutePath().toString(), 0, false));
+                eventReporter.reportLabel(DriverHelper.sanitize(label), path.toAbsolutePath().toString(), 0, false));
     }
 }

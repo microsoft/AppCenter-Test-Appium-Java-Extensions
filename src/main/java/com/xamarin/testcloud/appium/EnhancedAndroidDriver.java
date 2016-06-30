@@ -82,5 +82,4 @@ public class EnhancedAndroidDriver extends io.appium.java_client.android.Android
         DriverHelper.getScreenshotToWorkspace(execute(DriverCommand.SCREENSHOT).getValue(), OutputType.FILE, path ->
                 eventReporter.reportLabel(DriverHelper.sanitize(label), path.toAbsolutePath().toString(), 0, false));
     }
-
 }

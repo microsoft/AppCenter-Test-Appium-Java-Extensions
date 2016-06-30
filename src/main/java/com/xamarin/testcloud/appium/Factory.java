@@ -83,6 +83,7 @@ public class Factory {
 
     /**
      * Create enhanced android driver, use in place of {@link io.appium.java_client.android.AndroidDriver#AndroidDriver(AppiumDriverLocalService, HttpClient.Factory, Capabilities)}
+     * @param builder service builder
      * @param httpClientFactory http client factory
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced Android driver
@@ -155,6 +156,7 @@ public class Factory {
 
     /**
      * Create enhanced iOS driver, use in place of {@link io.appium.java_client.ios.IOSDriver#IOSDriver(AppiumDriverLocalService, HttpClient.Factory, Capabilities)}
+     * @param builder service builder
      * @param httpClientFactory http client factory
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced IOS driver

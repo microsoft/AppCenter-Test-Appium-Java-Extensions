@@ -18,7 +18,7 @@ abstract class EventReporter {
     private int screenshotCounter = 0;
     private final Pattern paramsFinder = Pattern.compile("\\[(.+?)\\]");
 
-    void reportJunit(String eventType, Description description, Throwable throwable) {
+    void reportJunit(EventType eventType, Description description, Throwable throwable) {
         int run = getRun(description);
         lastDescription = description;
 
@@ -36,7 +36,7 @@ abstract class EventReporter {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        if (eventType.equals("started")) {
+        if (EventType.started.equals(eventType)) {
             labelCounter = 0;
             screenshotCounter = 0;
         }
@@ -69,8 +69,8 @@ abstract class EventReporter {
         }
     }
 
-    private String toId(Description description, String eventType) {
-        String id = new ShortIdentifier(String.format("j%s:%s", eventType.substring(0, 3), description.getDisplayName())).value();
+    private String toId(Description description, EventType eventType) {
+        String id = new ShortIdentifier(String.format("j%s:%s", eventType.name().substring(0, 3), description.getDisplayName())).value();
         usedIds.add(id);
         return id;
     }

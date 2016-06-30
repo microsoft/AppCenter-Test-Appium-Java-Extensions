@@ -2,7 +2,7 @@ package com.xamarin.testcloud.appium;
 
 class Event {
 
-    Event(String id, String type, String testName, String className, int run) {
+    Event(String id, EventType type, String testName, String className, int run) {
         this.id = id;
         this.type = type;
         this.testName = testName;
@@ -12,7 +12,7 @@ class Event {
     }
 
     public static Event createLabel(String id, String testName, String className, int run, String label, String screenshotPath, int screenshotOrientation, boolean screenshotRotated) {
-        Event event = new Event(id, "label", testName, className, run);
+        Event event = new Event(id, EventType.label, testName, className, run);
         event.screenshotPath = screenshotPath;
         event.label = label;
         event.screenshotOrientation = screenshotOrientation;
@@ -21,25 +21,25 @@ class Event {
     }
 
     public static Event createScreenshot(String id, String testName, String className, int run, String screenshotPath, int screenshotOrientation, boolean screenshotRotated) {
-        Event event = new Event(id, "screenshot", testName, className, run);
+        Event event = new Event(id, EventType.screenshot, testName, className, run);
         event.screenshotPath = screenshotPath;
         event.screenshotOrientation = screenshotOrientation;
         event.screenshotRotated = screenshotRotated;
         return event;
     }
 
-    public static Event createWithException(String id, String type, String testName, String className, int run, String exception) {
+    public static Event createWithException(String id, EventType type, String testName, String className, int run, String exception) {
         Event event = new Event(id, type, testName, className, run);
         event.exception = exception;
         return event;
     }
 
-    public static Event create(String id, String type, String testName, String className, int run) {
+    public static Event create(String id, EventType type, String testName, String className, int run) {
         return new Event(id, type, testName, className, run);
     }
 
     private final String id;
-    private final String type;
+    private final EventType type;
     private final String testName;
     private final String className;
     private final double timestamp;
@@ -55,7 +55,7 @@ class Event {
         return id;
     }
 
-    public String getType() {
+    public EventType getType() {
         return type;
     }
 
