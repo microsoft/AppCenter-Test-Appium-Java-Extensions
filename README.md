@@ -26,6 +26,7 @@ Import these packages into your tests:
 import com.xamarin.testcloud.appium.Factory;
 import com.xamarin.testcloud.appium.EnhancedAndroidDriver;
 import org.junit.rules.TestWatcher;
+import org.junit.Rule;
 ```
 
 Step 3
@@ -66,7 +67,7 @@ Copy [this gist](https://gist.github.com/skovsboll/005db8653911349dc9a3062821d53
 
 Then run
 
-`mvn -P prepare-for-upload package` 
+`mvn -DskipTests -P prepare-for-upload package` 
 
 This will pack your test classes and all dependencies into the `target/upload` folder, ready to be uploaded to Xamarin Test Cloud.
 
