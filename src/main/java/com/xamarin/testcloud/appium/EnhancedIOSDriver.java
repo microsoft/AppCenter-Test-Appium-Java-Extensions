@@ -77,7 +77,7 @@ public class EnhancedIOSDriver extends io.appium.java_client.ios.IOSDriver<WebEl
     /**
      * Label a point of time in a test. Will insert a screenshot and label {@code label} into test report when running
      * in test-cloud.
-     * @param event text to insert into report.
+     * @param label text to insert into report.
      */
     public void label(String label) {
         DriverHelper.getScreenshotToWorkspace(execute(DriverCommand.SCREENSHOT).getValue(), OutputType.FILE, path ->
