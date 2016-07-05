@@ -112,5 +112,5 @@ Notice there are three differences from when uploading Calabash tests:
 * Android 4.4+ only. Selendroid support is expected soon.
 * Automating UIWebView is not supported.
 * Tests that launch multiple apps or no apps are not currently supported. The test must launch precisely one app.
-
+* Performance data is not yet included
 
