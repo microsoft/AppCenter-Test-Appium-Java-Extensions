@@ -11,14 +11,20 @@ Step 1
 Add the following dependency in you `pom.xml` file:
 
 ```xml
-    <dependency>
-        <groupId>com.xamarin.testcloud</groupId>
-        <artifactId>appium</artifactId>
-        <version>1.0</version>
-    </dependency>
+<dependency>
+    <groupId>com.xamarin.testcloud</groupId>
+    <artifactId>appium</artifactId>
+    <version>1.0</version>
+</dependency>
 ```
 
+This will make sure the enhanced Android and iOS drivers are avacompile time.
+
 Step 2
+
+Copy [this xml snippet](https://gist.github.com/skovsboll/bd49d271662254dfc74efa4e6c6ad646) into your `pom.xml` inside the `<project>` tag.
+
+Step 3
 
 Import these packages into your tests:
 
@@ -29,7 +35,7 @@ import org.junit.rules.TestWatcher;
 import org.junit.Rule;
 ```
 
-Step 3
+Step 4
 
 Insert these lines into each of your test classes:
 
@@ -38,7 +44,7 @@ Insert these lines into each of your test classes:
     public TestWatcher watcher = Factory.createWatcher();
 ```
 
-Step 4
+Step 5
 
 Replace your _declaration_ of `AndroidDriver` with `EnhancedAndroidDriver` or `IOSDriver` with `EnhancedIOSDriver`
 
@@ -46,7 +52,7 @@ Replace your _declaration_ of `AndroidDriver` with `EnhancedAndroidDriver` or `I
     private static EnhancedAndroidDriver driver;
 ```
 
-Step 5
+Step 6
 
 Replace the way you _instantiate_ your driver, such that lines in the form of:
 
@@ -72,9 +78,6 @@ Using these drivers will still allow you to run your tests locally without modif
 ### 2. Prepare your workspace folder
 
 Copy [this gist](https://gist.github.com/skovsboll/005db8653911349dc9a3062821d5348f/02be65561b830ea0e49adfc9ad7f76b39759cfd5) into your `pom.xml` in the `<profiles>` tag. If there's no `<profiles>` section in your pom, make one.
-
-Copy
- [this other gist](https://gist.github.com/skovsboll/bd49d271662254dfc74efa4e6c6ad646) into your `pom.xml` inside the `<project>` tag.
 
 Then run
 
