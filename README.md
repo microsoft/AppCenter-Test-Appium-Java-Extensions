@@ -108,24 +108,38 @@ Notice there are three differences from when uploading Calabash tests:
 * Tests that launch multiple apps or no apps are not currently supported. The test must launch precisely one app.
 * Performance data is not yet included in the test reports
 * Devices known to cause trouble at this point:
+    - HTC One M9 with Android 5.0.2
+    - ASUS Google Nexus 7 (2012) with Android 4.3
+    - Samsung Galaxy S6 Edge with Android 5.0.2
+    - Samsung Galaxy A3 with Android 4.4.4
+    - Samsung Galaxy Tab pro 10.1 - 4.4.2
+    - Samsung Galaxy Note 3 (octo-core) - 4.4.2
+    - samsung_galaxy_s_iii_(us_carrier)-4.3
+    - samsung_galaxy_note_ii-4.4.2
+    - samsung_galaxy_s4-4.3
+    - samsung_galaxy_s_iii_(4g_lte)-4.3
+    - samsung_galaxy_s_iii-4.3
+    - samsung_galaxy_note_ii-4.3
+    - samsung_galaxy_note_3_(quad-core)-4.3
+    - asus_google_nexus_7_(2013)-4.3
+    - htc_one_(m8)-5.0.1
+ 
+    Please stay clear of these for now
 
-    -   HTC One M9 with Android 5.0.2
-    -   ASUS Google Nexus 7 (2012) with Android 4.3
-    -   Samsung Galaxy S6 Edge with Android 5.0.2
-    -   Samsung Galaxy A3 with Android 4.4.4
-    -   Samsung Galaxy Tab pro 10.1 - 4.4.2
-    -   Samsung Galaxy Note 3 (octo-core) - 4.4.2
-    -   samsung_galaxy_s_iii_(us_carrier)-4.3
-    -   samsung_galaxy_note_ii-4.4.2
-    -   samsung_galaxy_s4-4.3
-    -   samsung_galaxy_s_iii_(4g_lte)-4.3
-    -   samsung_galaxy_s_iii-4.3
-    -   samsung_galaxy_note_ii-4.3
-    -   samsung_galaxy_note_3_(quad-core)-4.3
-    -   asus_google_nexus_7_(2013)-4.3
-    -   htc_one_(m8)-5.0.1
+Here's a list of devices that are well behaved at this point:
 
-    Please stay clear of these
+ *   asus_google_nexus_7_(2013)-5.0.2
+ *   htc_nexus_9-5.0.1
+ *   lg_nexus_5-5.1.1
+ *   lg_nexus_4-5.0.1
+ *   lg_nexus_4-5.1.1
+ *   asus_google_nexus_7_(2013)-5.1.1
+ *   lava_pixel_v1-5.1
+ *   lg_nexus_5-5.0.1
+ *   lg_g4-5.1
+
+All of these are in the device selection named `3d777c50`.
+
 
 ### 5. Performance Troubleshooting
 
