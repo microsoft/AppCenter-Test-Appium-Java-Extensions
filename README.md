@@ -15,7 +15,7 @@ Add the following dependency in you `pom.xml` file:
 <dependency>
     <groupId>com.xamarin.testcloud</groupId>
     <artifactId>appium</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
 
