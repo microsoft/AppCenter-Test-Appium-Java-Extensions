@@ -123,12 +123,13 @@ Notice there are three differences from when uploading Calabash tests:
     - samsung_galaxy_note_3_(quad-core)-4.3
     - asus_google_nexus_7_(2013)-4.3
     - htc_one_(m8)-5.0.1
+    - samsung_galaxy_s5-4.4.2
+    - asus_google_nexus_7_(2013)-5.0.2
  
     Please stay clear of these for now
 
 Here's a list of devices that are well behaved at this point:
 
- *   asus_google_nexus_7_(2013)-5.0.2
  *   htc_nexus_9-5.0.1
  *   lg_nexus_5-5.1.1
  *   lg_nexus_4-5.0.1
