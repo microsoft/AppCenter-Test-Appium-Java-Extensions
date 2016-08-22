@@ -43,8 +43,8 @@ abstract class EventReporter {
     }
 
     private int getRun(Description description) {
-        if(lastDescription == null) {
-            throw new RuntimeException("Unable to get test information. Make sure the testclass includes a @Rule:\n" +
+        if(description == null) {
+            throw new RuntimeException("Unable to get test information. Make sure the test class includes a @Rule:\n" +
                     "  @Rule\n" +
                     "  public TestWatcher watcher = Factory.createWatcher();");
         }
