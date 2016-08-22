@@ -103,6 +103,7 @@ Notice there are three differences from when uploading Calabash tests:
 
 * iOS tests do not work yet.
 * Only one Appium version supported: v. 1.4. 
+* JUnit 4.12 only
 * Android 4.2+ only. Selendroid support is expected soon.
 * Automating UIWebView is not supported.
 * Tests that launch multiple apps or no apps are not currently supported. The test must launch precisely one app.
