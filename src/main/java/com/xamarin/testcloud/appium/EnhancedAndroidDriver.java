@@ -9,7 +9,7 @@ import org.openqa.selenium.remote.http.HttpClient;
 import java.net.URL;
 import java.util.List;
 
-public class EnhancedAndroidDriver extends io.appium.java_client.android.AndroidDriver<WebElement> {
+public class EnhancedAndroidDriver<T extends WebElement> extends io.appium.java_client.android.AndroidDriver<WebElement> {
 
     protected final EventReporter eventReporter;
 
@@ -51,11 +51,6 @@ public class EnhancedAndroidDriver extends io.appium.java_client.android.Android
     public EnhancedAndroidDriver(Capabilities desiredCapabilities, EventReporter eventReporter) {
         super(desiredCapabilities);
         this.eventReporter = eventReporter;
-    }
-
-    @Override
-    public List<WebElement> findElements(By by) {
-        return super.findElements(by);
     }
 
     /**

@@ -4,6 +4,7 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.junit.rules.TestWatcher;
 import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.http.HttpClient;
 
@@ -34,7 +35,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced Android driver
      */
-    public static EnhancedAndroidDriver createAndroidDriver(URL url, DesiredCapabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedAndroidDriver<T> createAndroidDriver(URL url, DesiredCapabilities desiredCapabilities) {
         return provider.createAndroidDriver(url, desiredCapabilities);
     }
 
@@ -45,7 +46,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced Android driver
      */
-    public static EnhancedAndroidDriver createAndroidDriver(URL url, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedAndroidDriver<T> createAndroidDriver(URL url, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
         return provider.createAndroidDriver(url, httpClientFactory, desiredCapabilities);
     }
 
@@ -55,7 +56,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced Android driver
      */
-    public static EnhancedAndroidDriver createAndroidDriver(AppiumDriverLocalService service, Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedAndroidDriver<T> createAndroidDriver(AppiumDriverLocalService service, Capabilities desiredCapabilities) {
         return provider.createAndroidDriver(service, desiredCapabilities);
 
     }
@@ -67,7 +68,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced Android driver
      */
-    public static EnhancedAndroidDriver createAndroidDriver(AppiumDriverLocalService service, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedAndroidDriver<T> createAndroidDriver(AppiumDriverLocalService service, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
         return provider.createAndroidDriver(service, httpClientFactory, desiredCapabilities);
     }
 
@@ -77,7 +78,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced Android driver
      */
-    public static EnhancedAndroidDriver createAndroidDriver(AppiumServiceBuilder builder, Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedAndroidDriver<T> createAndroidDriver(AppiumServiceBuilder builder, Capabilities desiredCapabilities) {
         return provider.createAndroidDriver(builder, desiredCapabilities);
     }
 
@@ -88,7 +89,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced Android driver
      */
-    public static EnhancedAndroidDriver createAndroidDriver(AppiumServiceBuilder builder, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedAndroidDriver<T> createAndroidDriver(AppiumServiceBuilder builder, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
         return provider.createAndroidDriver(builder, httpClientFactory, desiredCapabilities);
     }
 
@@ -98,7 +99,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced Android driver
      */
-    public static EnhancedAndroidDriver createAndroidDriver(HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedAndroidDriver<T> createAndroidDriver(HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
         return provider.createAndroidDriver(httpClientFactory, desiredCapabilities);
     }
 
@@ -107,7 +108,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced Android driver
      */
-    public static EnhancedAndroidDriver createAndroidDriver(Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedAndroidDriver<T> createAndroidDriver(Capabilities desiredCapabilities) {
         return provider.createAndroidDriver(desiredCapabilities);
     }
     
@@ -118,7 +119,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced IOS driver
      */
-    public static EnhancedIOSDriver createIOSDriver(URL url, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedIOSDriver<T> createIOSDriver(URL url, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
         return provider.createIOSDriver(url, httpClientFactory, desiredCapabilities);
     }
 
@@ -128,7 +129,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced IOS driver
      */
-    public static EnhancedIOSDriver createIOSDriver(AppiumDriverLocalService service, Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedIOSDriver<T> createIOSDriver(AppiumDriverLocalService service, Capabilities desiredCapabilities) {
         return provider.createIOSDriver(service, desiredCapabilities);
 
     }
@@ -140,7 +141,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced IOS driver
      */
-    public static EnhancedIOSDriver createIOSDriver(AppiumDriverLocalService service, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedIOSDriver<T> createIOSDriver(AppiumDriverLocalService service, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
         return provider.createIOSDriver(service, httpClientFactory, desiredCapabilities);
     }
 
@@ -150,7 +151,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced IOS driver
      */
-    public static EnhancedIOSDriver createIOSDriver(AppiumServiceBuilder builder, Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedIOSDriver<T> createIOSDriver(AppiumServiceBuilder builder, Capabilities desiredCapabilities) {
         return provider.createIOSDriver(builder, desiredCapabilities);
     }
 
@@ -161,7 +162,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced IOS driver
      */
-    public static EnhancedIOSDriver createIOSDriver(AppiumServiceBuilder builder, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedIOSDriver<T> createIOSDriver(AppiumServiceBuilder builder, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
         return provider.createIOSDriver(builder, httpClientFactory, desiredCapabilities);
     }
 
@@ -171,7 +172,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced IOS driver
      */
-    public static EnhancedIOSDriver createIOSDriver(HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedIOSDriver<T> createIOSDriver(HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
         return provider.createIOSDriver(httpClientFactory, desiredCapabilities);
     }
 
@@ -180,7 +181,7 @@ public class Factory {
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced IOS driver
      */
-    public static EnhancedIOSDriver createIOSDriver(Capabilities desiredCapabilities) {
+    public static <T extends WebElement> EnhancedIOSDriver<T> createIOSDriver(Capabilities desiredCapabilities) {
         return provider.createIOSDriver(desiredCapabilities);
     }
 
@@ -190,7 +191,7 @@ public class Factory {
      * @param capabilities desired capabilities for the session
      * @return enhanced iOS driver
      */
-    public static EnhancedIOSDriver createIOSDriver(URL url, DesiredCapabilities capabilities) {
+    public static <T extends WebElement> EnhancedIOSDriver<T> createIOSDriver(URL url, DesiredCapabilities capabilities) {
         return provider.createIOSDriver(url, capabilities);
     }
 
