@@ -101,6 +101,7 @@ Notice there are three differences from when uploading Calabash tests:
 
 ### 4. Current Limitations
 
+* Maven version must be atleast 3.3.9
 * iOS tests do not work yet.
 * Only one Appium version supported: v. 1.4. 
 * JUnit 4.12 only
