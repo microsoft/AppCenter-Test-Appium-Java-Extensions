@@ -1,6 +1,5 @@
 package com.xamarin.testcloud.appium;
 
-import org.junit.AssumptionViolatedException;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
@@ -26,7 +25,7 @@ class Watcher extends TestWatcher {
     }
 
     @Override
-    protected void skipped(AssumptionViolatedException e, Description description) {
+    protected void skipped(org.junit.internal.AssumptionViolatedException e, Description description) {
         this.eventReporter.reportJunit(EventType.skipped, description, e);
         super.skipped(e, description);
     }
