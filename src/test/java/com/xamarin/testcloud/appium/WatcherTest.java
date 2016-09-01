@@ -18,7 +18,7 @@ public class WatcherTest {
 
     @Test
     public void testA() throws Exception {
-        String[] expected = {"jsta-testA(com.xamarin.testcloud.appium.WatcherTest)-AU8V17-Af0g"};
+        String[] expected = {"jsta-testA(com.xamarin.testcloud.appium.WatcherTest)-7l5ea2lr5ke6"};
         assertArrayEquals(expected, reporter.getIds());
     }
 

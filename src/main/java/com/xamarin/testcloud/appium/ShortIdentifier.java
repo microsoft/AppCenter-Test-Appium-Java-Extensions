@@ -1,16 +1,17 @@
 package com.xamarin.testcloud.appium;
 
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-import java.util.Base64;
+
 import java.util.regex.Pattern;
 
 class ShortIdentifier {
 
     private final Pattern sanitizer = Pattern.compile("[^a-zA-Z0-9.:_()\\[\\]]");
-    final int partMaxLength = 50;
-    final int idMaxLength = 1024; // other 1024 reserved for leading path
+    private final int partMaxLength = 50;
+    private final int idMaxLength = 1024; // other 1024 reserved for leading path
     private final String shortId;
 
     public ShortIdentifier(String input) {
@@ -32,7 +33,7 @@ class ShortIdentifier {
             sb.append(mostSignificantSubstring(sanitized, partMaxLength));
             sb.append("-");
         }
-        sb.append(calcBase64Hash(longId));
+        sb.append(filenameSafeHash(longId));
         return mostSignificantSubstring(sb.toString(), idMaxLength);
     }
 
@@ -43,11 +44,12 @@ class ShortIdentifier {
             return input.substring(0, maxLength - 2 - maxLength / 2) + ".." + input.substring(input.length() - maxLength / 2);
     }
 
-    final int useBits = 64;
-    private String calcBase64Hash(String input) {
+    private String filenameSafeHash(String input) {
         try {
-            byte[] shortened = shortenHash(calcSha1(input), useBits);
-            return Base64.getEncoder().encodeToString(shortened).replace('+', '_').replace('/', '-').replace("=","");
+            byte[] shortened = shortenHash(calcSha1(input), 64);
+            char[] radix61 = new BigInteger(shortened).abs().toString(29).toCharArray();
+            return new String(radix61);
+
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }

@@ -32,7 +32,8 @@
     </developers>
     <scm>
         <connection>scm:git:git@github.com:xamarinhq/test-cloud-appium-java-extensions.git</connection>
-        <developerConnection>scm:git:git@github.com:xamarinhq/test-cloud-appium-java-extensions.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:xamarinhq/test-cloud-appium-java-extensions.git
+        </developerConnection>
         <url>git@github.com:xamarinhq/test-cloud-appium-java-extensions.git</url>
     </scm>
 
@@ -42,16 +43,26 @@
             <artifactId>java-client</artifactId>
             <version>3.3.0</version>
         </dependency>
-       <dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.streamsupport</groupId>
+            <artifactId>streamsupport</artifactId>
+            <version>1.5.1</version>
         </dependency>
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
             <version>3.20.0-GA</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.10</version>
         </dependency>
     </dependencies>
 
@@ -65,6 +76,27 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>animal-sniffer-maven-plugin</artifactId>
+                <version>1.9</version>
+                <configuration>
+                    <signature>
+                        <groupId>org.codehaus.mojo.signature</groupId>
+                        <artifactId>java17</artifactId>
+                        <version>1.0</version>
+                    </signature>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>ensure-java-1.7-class-library</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

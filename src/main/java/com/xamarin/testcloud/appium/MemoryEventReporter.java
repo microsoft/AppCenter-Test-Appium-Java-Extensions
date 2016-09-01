@@ -5,16 +5,16 @@ import java.util.ArrayList;
 
 public class MemoryEventReporter extends EventReporter {
 
-    ArrayList<Event> events = new ArrayList<Event>();
+    ArrayList<Event> events = new ArrayList<>();
 
     public ArrayList<Event> getReports() { return events; }
 
     public String[] getIds() {
-        return events.stream().map(Event::getId).toArray(String[]::new);
+        return java8.util.stream.StreamSupport.stream(events).map(Event::getId).toArray(String[]::new);
     }
 
     public boolean hasId(String id) {
-        return events.stream().anyMatch(report -> report.getId().equals(id));
+        return java8.util.stream.StreamSupport.stream(events).anyMatch(report -> report.getId().equals(id));
     }
 
     public void clear() {

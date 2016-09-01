@@ -16,7 +16,7 @@ public class ShortIdentifierTest {
     }
 
     @Test
-    public void TwoSimilarInputsReturnDifferentShortIds() {
+    public void TwoAlmostSimilarInputsReturnDifferentShortIds() {
         String value1 = new ShortIdentifier("1234567890ABCDEF").value();
         String value2 = new ShortIdentifier("1234567890ABCDEG").value();
         assertNotEquals(value1, value2);
@@ -27,7 +27,7 @@ public class ShortIdentifierTest {
         String value = new ShortIdentifier(":/?a$!\"#€€#€!").value();
         System.out.println(value);
         File.createTempFile(value, ".txt");
-        assertEquals("-a-B-yu-Qd3Ato", value);
+        assertEquals("-a-1i4ssf0p3jar8", value);
     }
 
     @Test
@@ -44,7 +44,7 @@ public class ShortIdentifierTest {
         String repeated = new String(new char[4000]).replace("\0", "X");
         String value = new ShortIdentifier(repeated).value();
         System.out.println(value);
-        assertEquals(62, value.length());
+        assertEquals(64, value.length());
     }
 
     @Test
