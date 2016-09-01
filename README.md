@@ -101,10 +101,12 @@ Notice there are three differences from when uploading Calabash tests:
 
 ### 4. Current Limitations
 
+* No support for iOS 10
+* No support for Android 7.0 (Nougat)
+* No support for Android 4.2 or prior
 * Maven version must be atleast 3.3.9
 * Only one Appium version supported: v. 1.4. 
 * JUnit 4.9 or newer 
-* Android 4.2+ only. Selendroid support is expected soon.
 * Automating browsers is not supported.
 * Tests that launch multiple apps or no apps are not currently supported. The test must launch precisely one app.
 * Performance data is not yet included in the test reports
