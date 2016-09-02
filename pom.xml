@@ -58,11 +58,6 @@
             <version>3.20.0-GA</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.10</version>
-        </dependency>
     </dependencies>
 
     <build>
