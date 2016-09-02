@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.xamarin.testcloud</groupId>
     <artifactId>appium</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>Xamarin Test cloud appium java extensions</name>
     <description>Extensions for producing nice looking test reports for appium tests in Xamarin Test Cloud</description>
     <url>http://www.example.com/example-application</url>
@@ -35,7 +33,8 @@
         <developerConnection>scm:git:git@github.com:xamarinhq/test-cloud-appium-java-extensions.git
         </developerConnection>
         <url>git@github.com:xamarinhq/test-cloud-appium-java-extensions.git</url>
-    </scm>
+      <tag>appium-1.0</tag>
+  </scm>
 
     <dependencies>
         <dependency>
@@ -137,7 +136,7 @@
                             <workingDirectory>${project.build.outputDirectory}</workingDirectory>
                             <arguments>
                                 <argument>-cp</argument>
-                                <classpath/>
+                                <classpath />
                                 <argument>com.xamarin.testcloud.appium.javassist.GenericsRewrite</argument>
                                 <argument>com.xamarin.testcloud.appium.EnhancedAndroidDriver</argument>
                                 <argument>com.xamarin.testcloud.appium.EnhancedIOSDriver</argument>
