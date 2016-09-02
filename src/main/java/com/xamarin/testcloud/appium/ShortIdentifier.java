@@ -38,17 +38,21 @@ class ShortIdentifier {
     }
 
     private String mostSignificantSubstring(String input, int maxLength) {
-        if (input.length() <= maxLength)
+        final int length = input.length();
+        if (length <= maxLength)
             return input;
-        else
-            return input.substring(0, maxLength - 2 - maxLength / 2) + ".." + input.substring(input.length() - maxLength / 2);
+        else {
+            final int middle = maxLength / 2;
+            return input.substring(0, maxLength - 2 - middle) + ".." + input.substring(length - middle);
+        }
     }
 
     private String filenameSafeHash(String input) {
         try {
             byte[] shortened = shortenHash(calcSha1(input), 64);
-            char[] radix61 = new BigInteger(shortened).abs().toString(29).toCharArray();
+            char[] radix61 = new BigInteger(shortened).abs().toString(Character.MAX_RADIX).toCharArray();
             return new String(radix61);
+//              return new BigInteger(shortened).abs().toString(39);
 
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
