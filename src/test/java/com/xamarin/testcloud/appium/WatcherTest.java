@@ -18,13 +18,49 @@ public class WatcherTest {
 
     @Test
     public void testA() throws Exception {
-        String[] expected = {"jsta-testA(com.xamarin.testcloud.appium.WatcherTest)-7l5ea2lr5ke6"};
+        String[] expected = {"jsta-testA(com.xamarin.testcloud.appium.WatcherTest)-psozkedvebs"};
         assertArrayEquals(expected, reporter.getIds());
     }
 
     @Test
-    @Ignore
-    public void testB() throws Exception {
+    public void testC() throws Exception {
+        String[] expected = {
+                "jsta-testA(com.xamarin.testcloud.appium.WatcherTest)-psozkedvebs",
+                "jsuc-testA(com.xamarin.testcloud.appium.WatcherTest)-1x5fvtfzrychq",
+                "jfin-testA(com.xamarin.testcloud.appium.WatcherTest)-amqb890rk3pr",
+                "jsta-testC(com.xamarin.testcloud.appium.WatcherTest)-q3koi3yjil3j",
+        };
+        assertArrayEquals(expected, reporter.getIds());
+    }
+
+    @Test
+    public void testD() throws Exception {
+        // On purpose -- should provoke no interception
+    }
+
+    @Test
+    public void testE() throws Exception {
+        reporter.reportLabel("I'm here!", null, 0, false);
+        String[] expected = {
+                "jsta-testA(com.xamarin.testcloud.appium.WatcherTest)-psozkedvebs",
+                "jsuc-testA(com.xamarin.testcloud.appium.WatcherTest)-1x5fvtfzrychq",
+                "jfin-testA(com.xamarin.testcloud.appium.WatcherTest)-amqb890rk3pr",
+                "jsta-testC(com.xamarin.testcloud.appium.WatcherTest)-q3koi3yjil3j",
+
+                "jsuc-testC(com.xamarin.testcloud.appium.WatcherTest)-1sluduzx6p6mf",
+                "jfin-testC(com.xamarin.testcloud.appium.WatcherTest)-g3598m95rhjh",
+                "jsta-testD(com.xamarin.testcloud.appium.WatcherTest)-134micanw29y3",
+                "jsuc-testD(com.xamarin.testcloud.appium.WatcherTest)-1bgsf5p34ck5f",
+                "jfin-testD(com.xamarin.testcloud.appium.WatcherTest)-1dcdh8x7ced5m",
+                "jsta-testE(com.xamarin.testcloud.appium.WatcherTest)-qhz04ggmqwm3",
+                "jlab-testE(com.xamarin.testcloud.appium.WatcherTest)-0-1s9aqzas1ohzr",
+        };
+        assertArrayEquals(expected, reporter.getIds());
+    }
+
+    @Test
+    @Ignore("Will fail build")
+    public void testX() throws Exception {
         String[] expected = {
                 "jsta-testA(WatcherTest)-HdxmF7fk8fY",
                 "jsuc-testA(WatcherTest)-aSlXROqBeGM",
@@ -35,47 +71,5 @@ public class WatcherTest {
         throw new Exception("On purpose! This test must fail in order to test the Watcher handling failure.");
     }
 
-    @Test
-    @Ignore
-    public void testC() throws Exception {
-        String[] expected = {
-                "jsta-testA(WatcherTest)-HdxmF7fk8fY",
-                "jsuc-testA(WatcherTest)-aSlXROqBeGM",
-                "jfin-testA(WatcherTest)-Li-1K3sXOdY",
-                "jsta-testB(WatcherTest)-VT89h9ELOUQ",
-
-                "jfai-testB(WatcherTest)-_AnTMlAWZIc",
-                "jfin-testB(WatcherTest)-oXGRNfsQC28",
-                "jsta-testC(WatcherTest)-_i4uhnmaxQU",
-        };
-        assertArrayEquals(expected, reporter.getIds());
-    }
-
-    @Test
-    @Ignore
-    public void testD() throws Exception {
-        // On purpose -- should provoke no interception
-    }
-
-    @Test
-    @Ignore
-    public void testE() throws Exception {
-        reporter.reportLabel("I'm here!", null, 0, false);
-        String[] expected = {
-                "jsta-testA(WatcherTest)-HdxmF7fk8fY",
-                "jsuc-testA(WatcherTest)-aSlXROqBeGM",
-                "jfin-testA(WatcherTest)-Li-1K3sXOdY",
-                "jsta-testB(WatcherTest)-VT89h9ELOUQ",
-                "jfai-testB(WatcherTest)-_AnTMlAWZIc",
-                "jfin-testB(WatcherTest)-oXGRNfsQC28",
-                "jsta-testC(WatcherTest)-_i4uhnmaxQU",
-
-                "jsuc-testC(WatcherTest)-TYETH-6R7AQ",
-                "jfin-testC(WatcherTest)-BpAxiyJhNBc",
-                "jsta-testE(WatcherTest)-LtpbBfsvdIU",
-                "jlab-testE(WatcherTest)-0-L-AyyU5SfLc",
-        };
-        assertArrayEquals(expected, reporter.getIds());
-    }
 
 }

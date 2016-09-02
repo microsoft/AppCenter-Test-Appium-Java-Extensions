@@ -27,7 +27,7 @@ public class ShortIdentifierTest {
         String value = new ShortIdentifier(":/?a$!\"#€€#€!").value();
         System.out.println(value);
         File.createTempFile(value, ".txt");
-        assertEquals("-a-1i4ssf0p3jar8", value);
+        assertEquals("-a-4devdukkiyfu", value);
     }
 
     @Test
@@ -44,7 +44,7 @@ public class ShortIdentifierTest {
         String repeated = new String(new char[4000]).replace("\0", "X");
         String value = new ShortIdentifier(repeated).value();
         System.out.println(value);
-        assertEquals(64, value.length());
+        assertEquals(63, value.length());
     }
 
     @Test
