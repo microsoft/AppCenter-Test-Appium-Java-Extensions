@@ -75,23 +75,30 @@ Then run
 
 This will pack your test classes and all dependencies into the `target/upload` folder, ready to be uploaded to Xamarin Test Cloud.
 
+
+
 ### 3. Upload to Xamarin Test Cloud
 
-Install the special version of the xamarin-test-cloud gem to enable uploading appium tests:
+### Windows
 
-`gem install xamarin-test-cloud-appium`
+1. Download ```xtc.win7-x64.zip``` from the [last stable build](http://calabash-ci.macminicolo.net:8080/view/Uploader/job/Uploader%20master/).
+   
+   After downloading, right-click on the Zip file, select "Unblock", and click the "OK" button.
+2. Unzip the file.
 
-When ready upload, run:
+### OS X
+1. Download ```xtc.osx.10.10-x64.tar.gz``` from the [last stable build](http://calabash-ci.macminicolo.net:8080/view/Uploader/job/Uploader%20master/).
+2. Unpack the archive file:
+
+   `tar -xvzf xtc.osx.10.10-x64.tar.gz`
+
+
+To upload a test:
 
 ```
-test-cloud-appium submit \
-    /path/to/app.apk <api-key> --devices <selection> --user <email> --workspace /path/to/target/upload --test-parameters pipeline:appium
+./xtc test /path/to/app.apk <api-key> --devices <selection> --user <email> --workspace /path/to/target/upload 
 ```
 
-Notice there are three differences from when uploading Calabash tests:
-
-* Replace `test-cloud` with `test-cloud-appium`
-* Add `--test-parameters pipeline:appium`
 
 
 ### 4. Current Limitations
