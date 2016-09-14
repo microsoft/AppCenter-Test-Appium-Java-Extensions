@@ -43,10 +43,10 @@ Insert these lines into each of your test classes:
 
 Step 4
 
-Replace your _declaration_ of `AndroidDriver` with `EnhancedAndroidDriver` or `IOSDriver` with `EnhancedIOSDriver`
+Replace your _declaration_ of `AndroidDriver<MobileElement>` with `EnhancedAndroidDriver<MobileElement>` or `IOSDriver<MobileElement>` with `EnhancedIOSDriver<MobileElement>`
 
 ```java
-    private static EnhancedAndroidDriver driver;
+    private static EnhancedAndroidDriver<MobileElement> driver;
 ```
 
 Step 5
@@ -54,7 +54,7 @@ Step 5
 Replace the way you _instantiate_ your driver, such that lines in the form of:
 
 ```java
-    driver = new AndroidDriver<WebElement>(url, capabilities);
+    driver = new AndroidDriver<MobileElement>(url, capabilities);
 ```
 
 ...becomes:
@@ -79,26 +79,13 @@ This will pack your test classes and all dependencies into the `target/upload` f
 
 ### 3. Upload to Xamarin Test Cloud
 
-### Windows
-
-1. Download ```xtc.win7-x64.zip``` from the [last stable build](http://calabash-ci.macminicolo.net:8080/view/Uploader/job/Uploader%20master/).
-   
-   After downloading, right-click on the Zip file, select "Unblock", and click the "OK" button.
-2. Unzip the file.
-
-### OS X
-1. Download ```xtc.osx.10.10-x64.tar.gz``` from the [last stable build](http://calabash-ci.macminicolo.net:8080/view/Uploader/job/Uploader%20master/).
-2. Unpack the archive file:
-
-   `tar -xvzf xtc.osx.10.10-x64.tar.gz`
-
+If you have not done so already, install our command line interface by following [the installation instructions](https://github.com/xamarinhq/test-cloud-uploader#installation).
 
 To upload a test:
 
 ```
-./xtc test /path/to/app.apk <api-key> --devices <selection> --user <email> --workspace /path/to/target/upload 
+xtc test /path/to/app <api-key> --devices <selection> --user <email> --workspace /path/to/target/upload 
 ```
-
 
 
 ### 4. Current Limitations
