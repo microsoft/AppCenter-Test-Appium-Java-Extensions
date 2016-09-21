@@ -63,7 +63,14 @@ Replace the way you _instantiate_ your driver, such that lines in the form of:
     driver = Factory.createAndroidDriver(url, capabilities);
 ```
 
-Using these drivers will still allow you to run your tests locally without additional modifications, but enables you to "label" certain points in your test execution using `driver.label("text")`. The text and a screenshot from the device will be visible in test report in Xamarin Test Cloud.
+Using these drivers will still allow you to run your tests locally without additional modifications, but enables you to "label" certain points in your test execution using `driver.label("text")`. The text and a screenshot from the device will be visible in test report in Xamarin Test Cloud. A recommended practice is to have a call to label in the `@After` method, this will include a screenshot of the app final state in the test report. The screenshot will be taken, even if a test is failing, and often provides valuable information to why does so. An example `@After` method for a test could look like this: 
+```java
+    @After
+    public void TearDown(){
+        driver.label("Stopping App");
+        driver.quit();
+    }
+```
 
 ### 2. Prepare your workspace folder
 
