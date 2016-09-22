@@ -76,16 +76,6 @@ A recommended practice is to have a call to label in the `@After` method, this w
     }
 ```
 
-### 2. Prepare your workspace folder
-
-Copy [this snippet](uploadprofilesnippet.txt) into your `pom.xml` in the `<profiles>` tag. If there's no `<profiles>` section in your pom, make one.
-
-Then run
-
-`mvn -DskipTests -P prepare-for-upload package` 
-
-This will pack your test classes and all dependencies into the `target/upload` folder, ready to be uploaded to Test Cloud.
-
 ## 1b. Setup for Gradle Users
 The following steps are for users whose project is configured to use the Gradle build system, for example projects built using Android Studio. This approach requires you to move your UI test package from your Android project and into a new Maven-based project in order to be compatible with Test Cloud. We recommend using IntelliJ or any other IDE which supports the Maven build system.
 
@@ -157,7 +147,17 @@ After you have created the project, replace the contents of the generated `pom.x
 **Step 3 - Move your test package to the Maven project**
 Copy your test package from your project and place it into `/src/test/java` within the newly created Maven project. Open at least one test class to verify that all of the imports are working as expected.
 
-## 2. Upload to Test Cloud
+## 2. Prepare your workspace folder
+
+Copy [this snippet](uploadprofilesnippet.txt) into your `pom.xml` in the `<profiles>` tag. If there's no `<profiles>` section in your pom, make one.
+
+Then run
+
+`mvn -DskipTests -P prepare-for-upload package` 
+
+This will pack your test classes and all dependencies into the `target/upload` folder, ready to be uploaded to Test Cloud.
+
+## 3. Upload to Test Cloud
 
 If you have not done so already, install our command line interface by following [the installation instructions](https://github.com/xamarinhq/test-cloud-uploader#installation).
 
@@ -176,7 +176,7 @@ xtc test /path/to/app <api-key> --devices <selection> --user <email> --workspace
 
 
 
-## 3. Current Limitations
+## 4. Current Limitations
 
 * No support for TestNG
 * No support for iOS 10
@@ -190,7 +190,7 @@ xtc test /path/to/app <api-key> --devices <selection> --user <email> --workspace
 * Performance data is not yet included in the test reports
 
 
-## 4. Performance Troubleshooting
+## 5. Performance Troubleshooting
 
 Tests run on devices in the cloud may execute slightly slower than on a local device under certain circumstances. Normally, this is outweighed by the fact that you have many more devices available and therefore potentially able to parallelize test runs.
 
