@@ -22,7 +22,7 @@ This will ensure the enhanced Android and iOS drivers are available at compile t
 
 ### Step 2 - Add upload profile
 
-Copy [this snippet](uploadprofilesnippet.txt) into your `pom.xml` in the `<profiles>` tag. If there's no `<profiles>` section in your pom, make one.
+Copy [this snippet](uploadprofilesnippet.xml) into your `pom.xml` in the `<profiles>` tag. If there's no `<profiles>` section in your pom, make one.
 
 The profile, when activated, will pack your test classes and all dependencies into the `target/upload` folder, ready to be uploaded to Test Cloud.
 
