@@ -111,6 +111,7 @@ xtc test /path/to/app <api-key> --devices <selection> --user <email> --workspace
 
 ### 4. Current Limitations
 
+* No support for TestNG
 * No support for iOS 10
 * No support for Android 7.0 (Nougat)
 * No support for Android 4.2 or prior
