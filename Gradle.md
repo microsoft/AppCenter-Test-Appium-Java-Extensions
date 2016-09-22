@@ -26,4 +26,4 @@ task createPom {
     }.writeTo("pom.xml")
 ```
 
-Building the gradle project will compile the test classes and generate a 'pom.xml' file in the 'app' folder. With the changes to the gradle build script files in place please follow [the main guide from section 2 and forward](../README.md##2-changes-to-the-tests) 
+Building the gradle project will compile the test classes and generate a 'pom.xml' file in the 'app' folder. With the changes to the gradle build script files in place please follow [the main guide from section 2 and forward](../master/README.md##2-changes-to-the-tests) 
