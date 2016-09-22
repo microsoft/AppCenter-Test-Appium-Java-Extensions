@@ -2,14 +2,11 @@
 
 This project provides extensions for producing test reports for JUnit-based Appium tests in Test Cloud. Test Cloud offers access to a very large and diverse set of Android and iOS devices.
 
-In this guide, you’ll learn how to make the changes necessary to run your existing Appium test suite in Test Cloud. As of this writing, Test Cloud uses the Maven build system to prepare your test assets for upload and execute the uploaded tests. In an effort to provide access to more users faster, we have provided a process for Gradle users who are willing to move their test package into a new Maven project.
+In this guide, you’ll learn how to make the changes necessary to run your existing Appium test suite in Test Cloud. As of this writing, Test Cloud uses the Maven build system to prepare your test assets for upload and execute the uploaded tests. In an effort to provide access to more users faster, we have provided a guide [here](Gradle.md).
 
-## 1a. Setup for Maven Users
-The following steps are for users whose project is configured to use the Maven build system.
+## 1. Changes to the build system
 
-### 1. Replace your Appium driver with the EnhancedIOSDriver or EnhancedAndroidDriver
-
-**Step 1 - Update your pom.xml**
+### Step 1 - Add dependency
 
 Add the following dependency in your `pom.xml` file:
 
@@ -21,11 +18,17 @@ Add the following dependency in your `pom.xml` file:
 </dependency>
 ```
 
+This will ensure the enhanced Android and iOS drivers are available at compile time. The enhanced drivers are provided primarily to enable the *label* feature. See Step 5 for more detail on the *label* feature.
+
+### Step 2 - Add upload profile
+
 Copy [this snippet](uploadprofilesnippet.txt) into your `pom.xml` in the `<profiles>` tag. If there's no `<profiles>` section in your pom, make one.
 
-This will ensure the enhanced Android and iOS drivers are available at compile time. The ehanced drivers are provided primarily to enable the *label* feature. See Step 5 for more detail on the *label* feature.
+The profile, when activated, will pack your test classes and all dependencies into the `target/upload` folder, ready to be uploaded to Test Cloud.
 
-**Step 2 - Add dependencies**
+## 2. Changes to the tests
+
+### Step 1 - Add imports
 
 Import these packages into your test classes:
 
@@ -36,16 +39,16 @@ import org.junit.rules.TestWatcher;
 import org.junit.Rule;
 ```
 
-**Step 3 - Instantiate the TestWatcher**
+### Step 2 - Instantiate the TestWatcher
 
-Insert these lines at the beginning of each of your test classes:
+Insert this declaration in each of your test classes:
 
 ```java    
     @Rule
     public TestWatcher watcher = Factory.createWatcher();
 ```
 
-**Step 4 - Update your driver declerations**
+### Step 3 - Update your driver declaration  
 
 Replace your _declaration_ of `AndroidDriver<MobileElement>` with `EnhancedAndroidDriver<MobileElement>` or `IOSDriver<MobileElement>` with `EnhancedIOSDriver<MobileElement>`
 
@@ -53,7 +56,7 @@ Replace your _declaration_ of `AndroidDriver<MobileElement>` with `EnhancedAndro
     private static EnhancedAndroidDriver<MobileElement> driver;
 ```
 
-**Step 5 - Update your driver instantiations**
+### Step 4 - Update your driver instantiations 
 
 Replace the way you _instantiate_ your driver, such that lines in the form of:
 
@@ -70,6 +73,7 @@ Replace the way you _instantiate_ your driver, such that lines in the form of:
 Using these drivers will still allow you to run your tests locally without additional modifications, but enables you to "label" test steps in your test execution using `driver.label("text")`. The text and a screenshot from the device will be visible in test report in  Test Cloud. 
 
 A recommended practice is to have a call to label in the `@After` method, this will include a screenshot of the app final state in the test report. The screenshot will be taken, even if a test is failing, and often provides valuable information as to why it does so. An example `@After` method for a test could look like this: 
+
 ```java
     @After
     public void TearDown(){
@@ -77,85 +81,6 @@ A recommended practice is to have a call to label in the `@After` method, this w
         driver.quit();
     }
 ```
-
-## 1b. Setup for Gradle Users
-The following steps are for users whose project is configured to use the Gradle build system, for example projects built using Android Studio. This approach requires you to move your UI test package from your Android project and into a new Maven-based project in order to be compatible with Test Cloud. We recommend using IntelliJ or any other IDE which supports the Maven build system.
-
-### 1. Replace your Appium driver with the EnhancedIOSDriver or EnhancedAndroidDriver in your existing project
-
-**Step 1 - Add dependencies**
-
-Import these packages into your test classes:
-
-```java
-import com.xamarin.testcloud.appium.Factory;
-import com.xamarin.testcloud.appium.EnhancedAndroidDriver;
-import org.junit.rules.TestWatcher;
-import org.junit.Rule;
-```
-
-**Step 2 - Instantiate the TestWatcher**
-
-Insert these lines at the beginning of each of your test classes:
-
-```java    
-    @Rule
-    public TestWatcher watcher = Factory.createWatcher();
-```
-
-**Step 3 - Update your driver declerations**
-
-Replace your _declaration_ of `AndroidDriver<MobileElement>` with `EnhancedAndroidDriver<MobileElement>` or `IOSDriver<MobileElement>` with `EnhancedIOSDriver<MobileElement>`
-
-```java
-    private static EnhancedAndroidDriver<MobileElement> driver;
-```
-
-**Step 4 - Update your driver instantiations**
-
-Replace the way you _instantiate_ your driver, such that lines in the form of:
-
-```java
-    driver = new AndroidDriver<MobileElement>(url, capabilities);
-```
-
-...become:
-
-```java
-    driver = Factory.createAndroidDriver(url, capabilities);
-```
-
-Using these drivers will still allow you to run your tests locally without additional modifications, but enables you to "label" test steps in your test execution using `driver.label("text")`. The text and a screenshot from the device will be visible in test report in  Test Cloud. 
-
-A recommended practice is to have a call to label in the `@After` method, this will include a screenshot of the app final state in the test report. The screenshot will be taken, even if a test is failing, and often provides valuable information as to why it does so. An example `@After` method for a test could look like this: 
-```java
-    @After
-    public void TearDown(){
-        driver.label("Stopping App");
-        driver.quit();
-    }
-```
-
-### 2. Create the new Maven project
-
-**Step 1 - Download and edit the sample pom.xml**
-Download [this file](https://raw.githubusercontent.com/xamarinhq/test-cloud-appium-java-extensions/master/sample-files/gradle/pom.xml) which will serve as the project's configuration. Update the values for `groupId`, `artifactId`, and `versionId` (lines 7, 8, and 9) to match your organization and project. If you are new to Maven and want to learn more about these values, you can [read more  here](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html).
-
-**Step 2 - Create the project using the pom.xml**
-Create a new Maven project using an IDE such as IntelliJ. Because you will be replacing the contents of the generated `pom.xml` with the file you modified in step 1, the values for `groudId`, `artifactId`, and `versionId` are not important when creating the project.
-
-After you have created the project, replace the contents of the generated `pom.xml` with the one you created in step 1. Remember you will need to run an import once you have made this change. Once you've finished importing, open the External Libraries folder and verify you see `com.xamarin.testcloud:appium:1.0`.
-
-**Step 3 - Move your test package to the Maven project**
-Copy your test package from your project and place it into `/src/test/java` within the newly created Maven project. Open at least one test class to verify that all of the imports are working as expected.
-
-## 2. Prepare your workspace folder
-
-From the root of your project directory, run
-
-`mvn -D skipTests -P prepare-for-upload package` 
-
-This will pack your test classes and all dependencies into the `target/upload` folder, ready to be uploaded to Test Cloud.
 
 ## 3. Upload to Test Cloud
 
@@ -165,16 +90,22 @@ If you have not done so already, install our command line interface by following
 
 If you do not have an existing device key ready, you can generate one by following the *new test run* dialog in [Test Cloud](https://testcloud.xamarin.com). On the final screen, extract only the device key from the generated command.
 
-To upload a test:
+Steps to upload a test:
+
+Pack your test classes and all dependencies into the `target/upload` folder:
 
 ```
-xtc test /path/to/app <api-key> --devices <selection> --user <email> --workspace /path/to/target/upload 
+mvn -DskipTests -P prepare-for-upload package
+```
+
+Perform upload:
+
+```
+xtc test /path/to/app <api-key> --devices <selection> --user <email> --workspace target/upload 
 ```
 *Note: If you are having trouble targeting the `xtc` command, try executing with the fully qualified path to the package.*
 
 *Note: For Android apps, ensure your app was not built with Instant Run enabled as this will cause failures in Test Cloud.*
-
-
 
 ## 4. Current Limitations
 
@@ -207,4 +138,3 @@ If you have a very automated Continuous Delivery setup where the IPA is having i
 On a shared device cloud, it is very important for us to guarantee that devices are cleaned between each test. The next customer using the device may be someone from another organization.
 Running tests locally does not inflict any penalty because the app mostly stays installed through all tests. In Test Cloud, the app is automatically uninstalled after each test. The next test will then have to re-install the app before running the test. This can slow down your tests in the cloud.
 Luckily, there’s a solution. Instead of having the appium driver create a new session for each test case, just have one session and re-use it for all tests. To control the app state, make a call to driver.reset() before each test. This will only incur a 5-second delay between test cases. You can implement this by moving the driver initialization code from the `setUp` method to the `setUpClass` method. 
-
