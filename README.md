@@ -18,7 +18,7 @@ Add the following dependency in your `pom.xml` file:
 </dependency>
 ```
 
-This will ensure the enhanced Android and iOS drivers are available at compile time. The enhanced drivers are provided primarily to enable the *label* feature. See Step 5 for more detail on the *label* feature.
+This will ensure the enhanced Android and iOS drivers are available at compile time. The enhanced drivers are provided primarily to enable the `label` feature. See Step 4 for more detail on the `label` feature.
 
 ### Step 2 - Add upload profile
 
