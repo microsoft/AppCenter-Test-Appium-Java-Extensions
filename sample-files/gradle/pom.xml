@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.testcloud.xamarin</groupId>
-    <artifactId>court-counter-appium</artifactId>
+    <groupId>com.example.myapp</groupId>
+    <artifactId>my-app-name</artifactId>
     <version>1.0</version>
 
     <dependencies>
