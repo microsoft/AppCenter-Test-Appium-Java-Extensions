@@ -21,6 +21,8 @@ Add the following dependency in your `pom.xml` file:
 </dependency>
 ```
 
+Copy [this snippet](uploadprofilesnippet.txt) into your `pom.xml` in the `<profiles>` tag. If there's no `<profiles>` section in your pom, make one.
+
 This will ensure the enhanced Android and iOS drivers are available at compile time. The ehanced drivers are provided primarily to enable the *label* feature. See Step 5 for more detail on the *label* feature.
 
 **Step 2 - Add dependencies**
@@ -149,11 +151,9 @@ Copy your test package from your project and place it into `/src/test/java` with
 
 ## 2. Prepare your workspace folder
 
-Copy [this snippet](uploadprofilesnippet.txt) into your `pom.xml` in the `<profiles>` tag. If there's no `<profiles>` section in your pom, make one.
+From the root of your project directory, run
 
-Then run
-
-`mvn -DskipTests -P prepare-for-upload package` 
+`mvn -D skipTests -P prepare-for-upload package` 
 
 This will pack your test classes and all dependencies into the `target/upload` folder, ready to be uploaded to Test Cloud.
 
