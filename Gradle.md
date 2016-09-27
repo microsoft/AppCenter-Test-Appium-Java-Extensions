@@ -21,7 +21,7 @@ task createPom {
             }
 
             def profilesNode = asNode().appendNode('profiles')
-            profilesNode.append(new XmlParser().parse('https://raw.githubusercontent.com/xamarinhq/test-cloud-appium-java-extensions/doc_restructure/gradleuploadprofilesnippet.xml'))
+            profilesNode.append(new XmlParser().parse('https://raw.githubusercontent.com/xamarinhq/test-cloud-appium-java-extensions/master/gradleuploadprofilesnippet.xml'))
         }
     }.writeTo("pom.xml")
 ```
