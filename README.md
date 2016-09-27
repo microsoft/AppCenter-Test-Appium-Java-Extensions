@@ -2,7 +2,9 @@
 
 This project provides extensions for producing test reports for JUnit-based Appium tests in Test Cloud. Test Cloud offers access to a very large and diverse set of Android and iOS devices.
 
-In this guide, you’ll learn how to make the changes necessary to run your existing Appium test suite in Test Cloud. As of this writing, Test Cloud uses the Maven build system to prepare your test assets for upload and execute the uploaded tests. In an effort to provide access to more users faster, we have provided a guide [here](Gradle.md).
+In this guide, you’ll learn how to make the changes necessary to run your existing Appium test suite in Test Cloud. As of this writing, Test Cloud uses the [Maven](https://maven.apache.org/) build system to prepare your test assets for upload and execute the uploaded tests.
+
+There's also a [guide for Gradle users](Gradle.md).
 
 ## 1. Changes to the build system
 
