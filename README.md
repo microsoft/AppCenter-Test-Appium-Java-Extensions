@@ -86,7 +86,7 @@ A recommended practice is to have a call to label in the `@After` method, this w
 
 ## 3. Upload to Test Cloud
 
-If you have not done so already, install our command line interface by following [the installation instructions](https://github.com/xamarinhq/test-cloud-uploader#installation).
+If you have not done so already, install our command line interface by following [the installation instructions](UploaderInstall.md/#installation).
 
 *Note: If you are an existing Test Cloud user currently using the command line tools for Calabash or UITest, you will need to install this new tool.*
 
