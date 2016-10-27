@@ -38,28 +38,25 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
+        <artifactId>maven-help-plugin</artifactId>
+        <version>2.2</version>
         <executions>
           <execution>
-            <id>copy-pom-file</id>
+            <id>generate-pom</id>
             <phase>package</phase>
             <goals>
-              <goal>testResources</goal>
+              <goal>effective-pom</goal>
             </goals>
             <configuration>
-              <outputDirectory>${project.build.directory}/upload/</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>
-                    ${project.basedir}
-                  </directory>
-                  <includes>
-                    <include>pom.xml</include>
-                  </includes>
-                </resource>
-              </resources>
+              <output>${project.build.directory}/upload/pom.xml</output>
             </configuration>
           </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
           <execution>
             <id>copy-testclasses</id>
             <phase>package</phase>
@@ -71,7 +68,7 @@
               <resources>
                 <resource>
                   <directory>
-                    ${project.basedir}/build/intermediates/classes/test/debug/
+                    ${project.build.testOutputDirectory}
                   </directory>
                 </resource>
               </resources>
