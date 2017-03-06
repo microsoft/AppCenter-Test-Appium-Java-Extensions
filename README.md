@@ -116,7 +116,7 @@ xtc test /path/to/app <api-key> --devices <selection> --user <email> --workspace
 * Maven version must be atleast 3.3.9
 * Support for Appium version 1.6.3 only 
 * JUnit 4.9 or newer 
-* Automating browsers (web testing) is not supported.
+* Automating browsers (web testing), including hybrid apps, are not supported.
 * Tests that launch multiple apps or no apps are not currently supported. The test must launch precisely one app.
 
 ## 5. Performance Troubleshooting
