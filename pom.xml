@@ -4,7 +4,7 @@
 
     <groupId>com.xamarin.testcloud</groupId>
     <artifactId>appium</artifactId>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
     <name>Xamarin Test cloud appium java extensions</name>
     <description>Extensions for producing nice looking test reports for appium tests in Xamarin Test Cloud</description>
     <url>http://www.example.com/example-application</url>
@@ -33,7 +33,7 @@
         <developerConnection>scm:git:git@github.com:xamarinhq/test-cloud-appium-java-extensions.git
         </developerConnection>
         <url>git@github.com:xamarinhq/test-cloud-appium-java-extensions.git</url>
-      <tag>appium-1.1take2</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <dependencies>
