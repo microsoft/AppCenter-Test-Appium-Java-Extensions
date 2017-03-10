@@ -29,6 +29,10 @@ public class Factory {
         return new LocalProvider();
     }
 
+    private static void WarnServiceAndBuilerNotSupportedInXTC() {
+        System.out.println("Warning: Using AppiumDriverLocalService or AppiumServiceBuilder in Xamarin Test Cloud is not supported");
+    }
+
     /**
      * Create enhanced android driver, use in place of {@link io.appium.java_client.android.AndroidDriver#AndroidDriver(URL, Capabilities)}
      *
@@ -69,7 +73,7 @@ public class Factory {
 
     /**
      * Create enhanced android driver, use in place of {@link io.appium.java_client.android.AndroidDriver#AndroidDriver(AppiumDriverLocalService, Capabilities)}
-     * @param service local driver service
+     * @param service local driver service. Warning: not supported in Xamarin test cloud.
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced Android driver
      * @param <T>                 the required type of class which implement {@link org.openqa.selenium.WebElement}.
@@ -82,13 +86,14 @@ public class Factory {
      *                            {@link io.appium.java_client.android.AndroidElement}
      */
     public static <T extends WebElement> EnhancedAndroidDriver<T> createAndroidDriver(AppiumDriverLocalService service, Capabilities desiredCapabilities) {
+        WarnServiceAndBuilerNotSupportedInXTC();
         return provider.createAndroidDriver(service, desiredCapabilities);
 
     }
 
     /**
      * Create enhanced android driver, use in place of {@link io.appium.java_client.android.AndroidDriver#AndroidDriver(AppiumDriverLocalService, HttpClient.Factory, Capabilities)}
-     * @param service local driver service
+     * @param service local driver service.  Warning: not supported in Xamarin test cloud.
      * @param httpClientFactory http client factory
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced Android driver
@@ -102,12 +107,13 @@ public class Factory {
      *                            {@link io.appium.java_client.android.AndroidElement}
      */
     public static <T extends WebElement> EnhancedAndroidDriver<T> createAndroidDriver(AppiumDriverLocalService service, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
+        WarnServiceAndBuilerNotSupportedInXTC();
         return provider.createAndroidDriver(service, httpClientFactory, desiredCapabilities);
     }
 
     /**
      * Create enhanced android driver, use in place of {@link io.appium.java_client.android.AndroidDriver#AndroidDriver(AppiumServiceBuilder, Capabilities)}
-     * @param builder service builder
+     * @param builder service builder.  Warning: not supported in Xamarin test cloud.
      * @param desiredCapabilities desired capabilities for the session
      * @param <T>                 the required type of class which implement {@link org.openqa.selenium.WebElement}.
      *                            Instances of the defined type will be returned via findElement* and findElements*.
@@ -120,12 +126,13 @@ public class Factory {
      * @return enhanced Android driver
      */
     public static <T extends WebElement> EnhancedAndroidDriver<T> createAndroidDriver(AppiumServiceBuilder builder, Capabilities desiredCapabilities) {
+        WarnServiceAndBuilerNotSupportedInXTC();
         return provider.createAndroidDriver(builder, desiredCapabilities);
     }
 
     /**
      * Create enhanced android driver, use in place of {@link io.appium.java_client.android.AndroidDriver#AndroidDriver(AppiumDriverLocalService, HttpClient.Factory, Capabilities)}
-     * @param builder service builder
+     * @param builder service builder.  Warning: not supported in Xamarin test cloud.
      * @param httpClientFactory http client factory
      * @param desiredCapabilities desired capabilities for the session
      * @param <T>                 the required type of class which implement {@link org.openqa.selenium.WebElement}.
@@ -139,6 +146,7 @@ public class Factory {
      * @return enhanced Android driver
      */
     public static <T extends WebElement> EnhancedAndroidDriver<T> createAndroidDriver(AppiumServiceBuilder builder, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
+        WarnServiceAndBuilerNotSupportedInXTC();
         return provider.createAndroidDriver(builder, httpClientFactory, desiredCapabilities);
     }
 
@@ -198,7 +206,7 @@ public class Factory {
 
     /**
      * Create enhanced iOS driver, use in place of {@link io.appium.java_client.ios.IOSDriver#IOSDriver(AppiumDriverLocalService, Capabilities)}
-     * @param service local driver service
+     * @param service local driver service.  Warning: not supported in Xamarin test cloud.
      * @param desiredCapabilities desired capabilities for the session
      * @return enhanced IOS driver
      * @param <T>                 the required type of class which implement {@link org.openqa.selenium.WebElement}.
@@ -211,13 +219,14 @@ public class Factory {
      *                            {@link io.appium.java_client.android.AndroidElement}
      */
     public static <T extends WebElement> EnhancedIOSDriver<T> createIOSDriver(AppiumDriverLocalService service, Capabilities desiredCapabilities) {
+        WarnServiceAndBuilerNotSupportedInXTC();
         return provider.createIOSDriver(service, desiredCapabilities);
 
     }
 
     /**
      * Create enhanced iOS driver, use in place of {@link io.appium.java_client.ios.IOSDriver#IOSDriver(AppiumDriverLocalService, HttpClient.Factory, Capabilities)}
-     * @param service local driver service
+     * @param service local driver service.  Warning: not supported in Xamarin test cloud.
      * @param httpClientFactory http client factory
      * @param desiredCapabilities desired capabilities for the session
      * @param <T>                 the required type of class which implement {@link org.openqa.selenium.WebElement}.
@@ -231,12 +240,13 @@ public class Factory {
      * @return enhanced IOS driver
      */
     public static <T extends WebElement> EnhancedIOSDriver<T> createIOSDriver(AppiumDriverLocalService service, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
+        WarnServiceAndBuilerNotSupportedInXTC();
         return provider.createIOSDriver(service, httpClientFactory, desiredCapabilities);
     }
 
     /**
      * Create enhanced iOS driver, use in place of {@link io.appium.java_client.ios.IOSDriver#IOSDriver(AppiumServiceBuilder, Capabilities)}
-     * @param builder service builder
+     * @param builder service builder.  Warning: not supported in Xamarin test cloud.
      * @param desiredCapabilities desired capabilities for the session
      * @param <T>                 the required type of class which implement {@link org.openqa.selenium.WebElement}.
      *                            Instances of the defined type will be returned via findElement* and findElements*.
@@ -249,12 +259,13 @@ public class Factory {
      * @return enhanced IOS driver
      */
     public static <T extends WebElement> EnhancedIOSDriver<T> createIOSDriver(AppiumServiceBuilder builder, Capabilities desiredCapabilities) {
+        WarnServiceAndBuilerNotSupportedInXTC();
         return provider.createIOSDriver(builder, desiredCapabilities);
     }
 
     /**
      * Create enhanced iOS driver, use in place of {@link io.appium.java_client.ios.IOSDriver#IOSDriver(AppiumDriverLocalService, HttpClient.Factory, Capabilities)}
-     * @param builder service builder
+     * @param builder service builder.  Warning: not supported in Xamarin test cloud.
      * @param httpClientFactory http client factory
      * @param desiredCapabilities desired capabilities for the session
      * @param <T>                 the required type of class which implement {@link org.openqa.selenium.WebElement}.
@@ -268,6 +279,7 @@ public class Factory {
      * @return enhanced IOS driver
      */
     public static <T extends WebElement> EnhancedIOSDriver<T> createIOSDriver(AppiumServiceBuilder builder, HttpClient.Factory httpClientFactory, Capabilities desiredCapabilities) {
+        WarnServiceAndBuilerNotSupportedInXTC();
         return provider.createIOSDriver(builder, httpClientFactory, desiredCapabilities);
     }
 
