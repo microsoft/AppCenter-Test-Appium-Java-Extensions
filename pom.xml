@@ -4,7 +4,7 @@
 
     <groupId>com.microsoft.appcenter</groupId>
     <artifactId>appium-test-extension</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>Visual Studio App Center appium java test extensions</name>
     <description>Extensions for producing nice looking test reports for appium tests in Visual Studio App Center</description>
     <url>http://appcenter.ms</url>
@@ -146,13 +146,10 @@
         <profile>
             <id>release</id>
             <distributionManagement>
-                <snapshotRepository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-                </snapshotRepository>
                 <repository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                    <id>bintray-app-center-appcenter</id>
+                    <name>app-center-appcenter</name>
+                    <url>https://api.bintray.com/maven/app-center/appcenter/${project.artifactId}/;publish=1</url>
                 </repository>
             </distributionManagement>
             <build>
