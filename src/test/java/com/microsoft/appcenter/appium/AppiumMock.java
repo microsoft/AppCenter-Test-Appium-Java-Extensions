@@ -1,4 +1,4 @@
-package com.xamarin.testcloud.appium;
+package com.microsoft.appcenter.appium;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;

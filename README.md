@@ -35,8 +35,8 @@ The profile, when activated, will pack your test classes and all dependencies in
 Import these packages into your test classes:
 
 ```java
-import com.xamarin.testcloud.appium.Factory;
-import com.xamarin.testcloud.appium.EnhancedAndroidDriver;
+import com.microsoft.appcenter.appium.Factory;
+import com.microsoft.appcenter.appium.EnhancedAndroidDriver;
 import org.junit.rules.TestWatcher;
 import org.junit.Rule;
 ```
