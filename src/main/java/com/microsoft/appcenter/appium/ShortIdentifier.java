@@ -1,4 +1,4 @@
-package com.xamarin.testcloud.appium;
+package com.microsoft.appcenter.appium;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

@@ -1,8 +1,8 @@
-package com.xamarin.testcloud.appium;
+package com.microsoft.appcenter.appium;
 
 import java.io.IOException;
 
-import static com.xamarin.testcloud.appium.EventType.*;
+import static com.microsoft.appcenter.appium.EventType.*;
 
 class StdOutEventReporter extends EventReporter {
 

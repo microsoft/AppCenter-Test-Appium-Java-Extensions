@@ -1,4 +1,4 @@
-package com.xamarin.testcloud.appium.javassist;
+package com.microsoft.appcenter.appium.javassist;
 
 import javassist.CannotCompileException;
 import javassist.ClassPool;

@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xamarin.testcloud</groupId>
-    <artifactId>appium</artifactId>
-    <version>1.2-SNAPSHOT</version>
-    <name>Xamarin Test cloud appium java extensions</name>
-    <description>Extensions for producing nice looking test reports for appium tests in Xamarin Test Cloud</description>
-    <url>http://www.example.com/example-application</url>
+    <groupId>com.microsoft.appcenter</groupId>
+    <artifactId>appium-test-extension</artifactId>
+    <version>1.0</version>
+    <name>Visual Studio App Center appium java test extensions</name>
+    <description>Extensions for producing nice looking test reports for appium tests in Visual Studio App Center</description>
+    <url>http://appcenter.ms</url>
     <licenses>
         <license>
             <name>MIT License</name>
@@ -17,15 +17,15 @@
     <developers>
         <developer>
             <name>Søren Skovsbøll</name>
-            <email>soren@xamarin.com</email>
-            <organization>Xamarin</organization>
-            <organizationUrl>http://www.xamarin.com</organizationUrl>
+            <email>soskovsb@microsoft.com</email>
+            <organization>Microsoft</organization>
+            <organizationUrl>http://www.microsoft.com</organizationUrl>
         </developer>
         <developer>
             <name>Simon Søndergaard</name>
-            <email>simon@xamarin.com</email>
-            <organization>Xamarin</organization>
-            <organizationUrl>http://www.xamarin.com</organizationUrl>
+            <email>sisonder@microsoft.com</email>
+            <organization>Microsoft</organization>
+            <organizationUrl>http://www.microsoft.com</organizationUrl>
         </developer>
     </developers>
     <scm>
@@ -132,9 +132,9 @@
                             <arguments>
                                 <argument>-cp</argument>
                                 <classpath />
-                                <argument>com.xamarin.testcloud.appium.javassist.GenericsRewrite</argument>
-                                <argument>com.xamarin.testcloud.appium.EnhancedAndroidDriver</argument>
-                                <argument>com.xamarin.testcloud.appium.EnhancedIOSDriver</argument>
+                                <argument>com.microsoft.appcenter.appium.javassist.GenericsRewrite</argument>
+                                <argument>com.microsoft.appcenter.appium.EnhancedAndroidDriver</argument>
+                                <argument>com.microsoft.appcenter.appium.EnhancedIOSDriver</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -146,13 +146,10 @@
         <profile>
             <id>release</id>
             <distributionManagement>
-                <snapshotRepository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-                </snapshotRepository>
                 <repository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                    <id>bintray-app-center-appcenter</id>
+                    <name>app-center-appcenter</name>
+                    <url>https://api.bintray.com/maven/app-center/appcenter/${project.artifactId}/;publish=1</url>
                 </repository>
             </distributionManagement>
             <build>
