@@ -1,7 +1,7 @@
 # Appium Java Extensions
 
 
-This project provides extensions for producing test reports for JUnit-based Appium tests in Visual Studio App Center. Visit our [docs](https://docs.microsoft.com/en-us/mobile-center/test-cloud/preparing-for-upload/appium) for instructions on how to convert and run your existing Appium test suite in App Center.
+This project provides extensions for producing test reports for JUnit-based Appium tests in Visual Studio App Center. Visit our [docs](https://docs.microsoft.com/appcenter/test-cloud/preparing-for-upload/appium) for instructions on how to convert and run your existing Appium test suite in App Center.
 
 ## Upload to Xamarin Test Cloud
 
