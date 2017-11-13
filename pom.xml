@@ -146,8 +146,8 @@
             <id>release</id>
             <distributionManagement>
                 <repository>
-                    <id>bintray-app-center-appcenter</id>
-                    <name>app-center-appcenter</name>
+                    <id>bintray-vsappcenter-appcenter</id>
+                    <name>vsappcenter-appcenter</name>
                     <url>https://api.bintray.com/maven/vsappcenter/appcenter/${project.artifactId}/;publish=1</url>
                 </repository>
             </distributionManagement>
