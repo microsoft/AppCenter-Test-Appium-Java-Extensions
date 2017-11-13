@@ -29,10 +29,9 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:git@github.com:xamarinhq/test-cloud-appium-java-extensions.git</connection>
-        <developerConnection>scm:git:git@github.com:xamarinhq/test-cloud-appium-java-extensions.git
-        </developerConnection>
-        <url>git@github.com:xamarinhq/test-cloud-appium-java-extensions.git</url>
+        <connection>scm:git@github.com:Microsoft/AppCenter-Test-Appium-Java-Extensions.git</connection>
+        <developerConnection>scm:git@github.com:Microsoft/AppCenter-Test-Appium-Java-Extensions.git</developerConnection>
+        <url>git@github.com:Microsoft/AppCenter-Test-Appium-Java-Extensions.git</url>
       <tag>HEAD</tag>
   </scm>
 
@@ -149,7 +148,7 @@
                 <repository>
                     <id>bintray-app-center-appcenter</id>
                     <name>app-center-appcenter</name>
-                    <url>https://api.bintray.com/maven/app-center/appcenter/${project.artifactId}/;publish=1</url>
+                    <url>https://api.bintray.com/maven/vsappcenter/appcenter/${project.artifactId}/;publish=1</url>
                 </repository>
             </distributionManagement>
             <build>
@@ -209,5 +208,4 @@
             </build>
         </profile>
     </profiles>
-
 </project>
