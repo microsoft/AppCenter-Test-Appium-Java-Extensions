@@ -1,0 +1,1 @@
+mvn -Prelease release:perform -Dmaven.metadata.legacy=true
