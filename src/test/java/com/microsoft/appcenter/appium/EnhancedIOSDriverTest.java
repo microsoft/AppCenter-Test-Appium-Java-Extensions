@@ -54,4 +54,27 @@ public class EnhancedIOSDriverTest {
         driver.getScreenshotAs(OutputType.BASE64);
         assertTrue("Expected screenshot", reporter.getReports().stream().anyMatch(e -> e.getScreenshotPath() != null && new File(e.getScreenshotPath()).exists()));
     }
+    @Test(expected = IllegalArgumentException.class)
+    public void testEmptyLabelsNotAllowed() {
+        driver.label("");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testNullLabelsNotAllowed() {
+        driver.label(null);
+    }
+
+    @Test
+    public void testVeryLongLabelsAreNotAllowed() {
+        //128 chars
+        String longLabel = "longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong";
+        driver.label(longLabel);
+        //expected 128 to be allowed
+        try {
+            driver.label(longLabel + "1");
+            fail("Expected IllegalArgumentException to be raised on 129 length strings");
+        } catch (IllegalArgumentException e) {
+            //expected raise. All good
+        }
+    }
 }
