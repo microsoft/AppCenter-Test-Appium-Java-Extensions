@@ -75,9 +75,6 @@ public class EnhancedIOSDriver<T extends WebElement> extends io.appium.java_clie
      * @param label text to insert into report.
      */
     public void label(String label) {
-        if (null == label || label.length() < 1 || label.length() > 128) {
-            throw new IllegalArgumentException("Labels must be a non-empty string of length <= 128");
-        }
         DriverHelper.getScreenshotToWorkspace(execute(DriverCommand.SCREENSHOT).getValue(), OutputType.FILE, path ->
                 eventReporter.reportLabel(DriverHelper.sanitize(label), path.toAbsolutePath().toString(), 0, false));
     }

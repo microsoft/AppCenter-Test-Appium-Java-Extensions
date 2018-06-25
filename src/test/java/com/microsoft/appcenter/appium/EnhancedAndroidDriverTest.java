@@ -70,16 +70,23 @@ public class EnhancedAndroidDriverTest {
     }
 
     @Test
-    public void testVeryLongLabelsAreNotAllowed() {
-        //128 chars
-        String longLabel = "longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong";
+    public void test128CharLabelsAreAllowed() {
+        String longLabel = createLabelOfSize(128);
         driver.label(longLabel);
         //expected 128 to be allowed
-        try {
-            driver.label(longLabel + "1");
-            fail("Expected IllegalArgumentException to be raised on 129 length strings");
-        } catch (IllegalArgumentException e) {
-            //expected raise. All good
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testVeryLongLabelsAreNotAllowed() {
+        String longLabel = createLabelOfSize(129);
+        driver.label(longLabel);
+    }
+
+    private String createLabelOfSize(int i) {
+        StringBuilder sb = new StringBuilder(i);
+        while (i-- > 0) {
+            sb.append("a");
         }
+        return sb.toString();
     }
 }

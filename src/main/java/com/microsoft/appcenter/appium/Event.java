@@ -12,6 +12,9 @@ class Event {
     }
 
     public static Event createLabel(String id, String testName, String className, int run, String label, String screenshotPath, int screenshotOrientation, boolean screenshotRotated) {
+        if (null == label || label.length() < 1 || label.length() > 128) {
+            throw new IllegalArgumentException("Labels must be non-empty strings of length <= 128");
+        }
         Event event = new Event(id, EventType.label, testName, className, run);
         event.screenshotPath = screenshotPath;
         event.label = label;
