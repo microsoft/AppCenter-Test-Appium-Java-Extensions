@@ -65,15 +65,15 @@ public class EnhancedIOSDriverTest {
     }
 
     @Test
-    public void test128CharLabelsAreAllowed() {
-        String longLabel = createLabelOfSize(128);
+    public void test256CharLabelsAreAllowed() {
+        String longLabel = createLabelOfSize(256);
         driver.label(longLabel);
         //expected 128 to be allowed
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testVeryLongLabelsAreNotAllowed() {
-        String longLabel = createLabelOfSize(129);
+        String longLabel = createLabelOfSize(257);
         driver.label(longLabel);
     }
 
