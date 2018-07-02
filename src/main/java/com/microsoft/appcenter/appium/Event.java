@@ -5,13 +5,13 @@ class Event {
     public static final int MAX_LABEL_SIZE = 256;
 
     Event(String id, EventType type, String testName, String className, int run) {
-        if (null == id|| id.length() < 1) {
+        if (null == id || id.length() < 1) {
             throw new IllegalArgumentException("id must be a non-empty string");
         }
-        if (null == testName|| testName.length() < 1) {
+        if (null == testName || testName.length() < 1) {
             throw new IllegalArgumentException("testName must be a non-empty string");
         }
-        if (null == className|| className.length() < 1) {
+        if (null == className || className.length() < 1) {
             throw new IllegalArgumentException("className must be a non-empty string");
         }
         if (run < 0) {
