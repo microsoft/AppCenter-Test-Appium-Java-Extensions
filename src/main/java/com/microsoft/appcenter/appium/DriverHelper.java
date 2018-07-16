@@ -38,6 +38,9 @@ class DriverHelper {
 
 
     static String sanitize(String input) {
+        if (null == input) {
+            return null;
+        }
         return input.replaceAll("[\n\r:=]", " ");
     }
 

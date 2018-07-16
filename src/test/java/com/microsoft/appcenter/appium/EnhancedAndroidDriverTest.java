@@ -58,4 +58,35 @@ public class EnhancedAndroidDriverTest {
 
         assertTrue("Expected screenshot", reporter.getReports().stream().anyMatch(e -> e.getScreenshotPath() != null && new File(e.getScreenshotPath()).exists()));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testEmptyLabelsNotAllowed() {
+        driver.label("");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testNullLabelsNotAllowed() {
+        driver.label(null);
+    }
+
+    @Test
+    public void test256CharLabelsAreAllowed() {
+        String longLabel = createLabelOfSize(256);
+        driver.label(longLabel);
+        //expected 128 to be allowed
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testVeryLongLabelsAreNotAllowed() {
+        String longLabel = createLabelOfSize(257);
+        driver.label(longLabel);
+    }
+
+    private String createLabelOfSize(int i) {
+        StringBuilder sb = new StringBuilder(i);
+        while (i-- > 0) {
+            sb.append("a");
+        }
+        return sb.toString();
+    }
 }
