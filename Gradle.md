@@ -16,7 +16,7 @@ task createPom {
             configurations.testCompile.allDependencies.each {
                 def dependencyNode = dependenciesNode.appendNode('dependency')
                 dependencyNode.appendNode('groupId', it.group)
-                dependencyNode.appendNode('artifactId, it.name)
+                dependencyNode.appendNode('artifactId', it.name)
                 dependencyNode.appendNode('version', it.version)
             }
 
@@ -24,6 +24,7 @@ task createPom {
             profilesNode.append(new XmlParser().parse('https://raw.githubusercontent.com/xamarinhq/test-cloud-appium-java-extensions/master/gradleuploadprofilesnippet.xml'))
         }
     }.writeTo("pom.xml")
+}
 ```
 
 Building the gradle project will compile the test classes and generate a `pom.xml` file in the `app` folder. With the changes to the gradle build script files in place please follow [the main guide from section 2 and forward](../master/README.md##2-changes-to-the-tests) 
