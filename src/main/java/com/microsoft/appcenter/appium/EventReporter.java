@@ -16,7 +16,7 @@ abstract class EventReporter {
     private Description lastDescription = null;
     private int labelCounter = 0;
     private int screenshotCounter = 0;
-    private final Pattern paramsFinder = Pattern.compile("\\[(.+?)\\]");
+    private final Pattern paramsFinder = Pattern.compile("\\[(\\d+?)\\]");
 
     void reportJunit(EventType eventType, Description description, Throwable throwable) {
         int run = getRun(description);
