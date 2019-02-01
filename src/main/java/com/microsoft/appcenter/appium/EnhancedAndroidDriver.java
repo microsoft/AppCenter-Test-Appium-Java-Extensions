@@ -9,7 +9,7 @@ import org.openqa.selenium.remote.http.HttpClient;
 import java.net.URL;
 import java.util.List;
 
-public class EnhancedAndroidDriver<T extends WebElement> extends io.appium.java_client.android.AndroidDriver<WebElement> {
+public class EnhancedAndroidDriver<T extends WebElement> extends io.appium.java_client.android.AndroidDriver<WebElement> implements LabellingDriver {
 
     protected final EventReporter eventReporter;
 
@@ -68,11 +68,7 @@ public class EnhancedAndroidDriver<T extends WebElement> extends io.appium.java_
                  eventReporter.reportScreenshot(path.toAbsolutePath().toString(), 0, false));
     }
 
-    /**
-     * Label a point of time in a test. Will insert a screenshot and label {@code label} into test report when running
-     * in test-cloud.
-     * @param label text to insert into report.
-     */
+    @Override
     public void label(String label) {
         DriverHelper.getScreenshotToWorkspace(execute(DriverCommand.SCREENSHOT).getValue(), OutputType.FILE, path ->
                 eventReporter.reportLabel(DriverHelper.sanitize(label), path.toAbsolutePath().toString(), 0, false));
