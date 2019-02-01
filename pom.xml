@@ -4,7 +4,7 @@
 
     <groupId>com.microsoft.appcenter</groupId>
     <artifactId>appium-test-extension</artifactId>
-    <version>1.5-SNAPSHOT</version>
+    <version>1.5</version>
     <name>Visual Studio App Center appium java test extensions</name>
     <description>Extensions for producing nice looking test reports for appium tests in Visual Studio App Center</description>
     <url>http://appcenter.ms</url>
