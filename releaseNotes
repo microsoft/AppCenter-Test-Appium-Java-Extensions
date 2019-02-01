@@ -1,1 +1,14 @@
-mvn -Prelease release:perform -Dmaven.metadata.legacy=true
+
+# release plugin do not work with never versions of git :-(
+
+#mvn -Prelease release:perform -Dmaven.metadata.legacy=true
+
+# Using this instead:
+
+mvn -Prelease versions:set
+mvn -Prelease deploy
+mvn -Prelease scm:tag
+
+mvn -Prelease versions:set # to create a -SNAPSHOT pom
+commit to repo
+
