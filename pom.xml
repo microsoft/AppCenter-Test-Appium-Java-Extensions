@@ -22,7 +22,7 @@
             <organizationUrl>http://www.microsoft.com</organizationUrl>
         </developer>
         <developer>
-            <name>Simon Søndergaard</name>
+            <name>Simon Scharf</name>
             <email>sisonder@microsoft.com</email>
             <organization>Microsoft</organization>
             <organizationUrl>http://www.microsoft.com</organizationUrl>
@@ -39,7 +39,7 @@
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>3.3.0</version>
+            <version>6.0.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -73,7 +73,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>animal-sniffer-maven-plugin</artifactId>
-                <version>1.9</version>
+                <version>1.16</version>
                 <configuration>
                     <signature>
                         <groupId>org.codehaus.mojo.signature</groupId>
