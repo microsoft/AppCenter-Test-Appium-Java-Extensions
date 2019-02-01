@@ -42,7 +42,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -61,7 +60,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -80,7 +78,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -101,7 +98,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -119,7 +115,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -139,7 +134,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -158,7 +152,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -175,7 +168,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -184,7 +176,7 @@ public class Factory {
     public static <T extends WebElement> EnhancedAndroidDriver<T> createAndroidDriver(Capabilities desiredCapabilities) {
         return provider.createAndroidDriver(desiredCapabilities);
     }
-    
+
     /**
      * Create enhanced iOS driver, use in place of {@link io.appium.java_client.ios.IOSDriver#IOSDriver(URL, HttpClient.Factory, Capabilities)}
      * @param url of the server
@@ -194,7 +186,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -213,7 +204,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -233,7 +223,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -252,7 +241,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -272,7 +260,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -291,7 +278,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -308,7 +294,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
@@ -326,7 +311,6 @@ public class Factory {
      *                            Instances of the defined type will be returned via findElement* and findElements*.
      *                            Warning (!!!). Allowed types:
      *                            {@link org.openqa.selenium.WebElement}
-     *                            {@link io.appium.java_client.TouchableElement}
      *                            {@link org.openqa.selenium.remote.RemoteWebElement}
      *                            {@link io.appium.java_client.MobileElement}
      *                            {@link io.appium.java_client.android.AndroidElement}
