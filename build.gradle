@@ -1,0 +1,100 @@
+apply plugin: 'java-library'
+apply plugin: 'signing'
+apply plugin: 'maven-publish'
+apply from:   'publish.gradle'
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.appium:java-client:6.0.0'
+    implementation 'junit:junit:4.12'
+    implementation 'net.sourceforge.streamsupport:streamsupport:1.5.1'
+    implementation 'org.javassist:javassist:3.20.0-GA'
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+def ext = rootProject.ext
+
+// Basic information about the project
+group = ext.groupId
+version = ext.packageVersion
+archivesBaseName = ext.projectId
+description = ext.projectDescription
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
+// Credentials for signing plugin
+ext."signing.keyId" = ext.signingKeyId
+ext."signing.password" = ext.publicKeyPassword
+ext."signing.secretKeyRingFile" = ext.secretKeyPath
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            pom {
+                name = ext.projectName
+                description = ext.projectDescription
+                url = ext.projectUrl
+
+                licenses {
+                    license {
+                        name = ext.licenseName
+                        url = ext.licenseSite
+                    }
+                }
+
+                developers {
+                    developer {
+                        name = 'Søren Skovsbøll'
+                        email = 'soskovsb@microsoft.com'
+                        organization  = 'Microsoft'
+                        organizationUrl = 'http://www.microsoft.com'
+                    }
+                    developer {
+                        name = 'Simon Scharf'
+                        email = 'sisonder@microsoft.com'
+                        organization = 'Microsoft'
+                        organizationUrl = 'http://www.microsoft.com'
+                    }
+                }
+
+                scm {
+                    connection =  ext.gitUrl
+                    developerConnection = ext.siteUrl
+                    url = ext.siteUrl
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            def releasesRepoUrl = ext.releaseUrl
+            def snapshotsRepoUrl = ext.snapshotUrl
+
+            name = 'staging'
+
+            // Credentials in the gradle.properties
+            credentials(PasswordCredentials)
+
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}

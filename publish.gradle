@@ -1,0 +1,42 @@
+/*
+*
+* Copyright (c) Microsoft Corporation. All rights reserved.
+* Licensed under the MIT License.
+*/
+
+ext {
+    //project info
+    siteUrl = 'https://github.com/microsoft/AppCenter-Test-Appium-Java-Extensions'
+    gitUrl = 'https://github.com/microsoft/AppCenter-Test-Appium-Java-Extensions.git'
+    groupId = 'com.microsoft.appcenter'
+    projectId = 'appium-test-extension'
+
+    //change this for a next release
+    packageVersion = '1.6'
+
+    //project description
+    projectName = 'Visual Studio App Center appium java test extensions'
+    projectDescription = 'Extensions for producing nice looking test reports for appium tests in Visual Studio App Center'
+    projectUrl = 'https://appcenter.ms'
+
+    Properties properties = new Properties()
+    File file = rootProject.file('local.properties')
+
+    if (file.exists()) {
+        properties.load(file.newDataInputStream())
+    }
+
+    releaseUrl = properties.getProperty("releaseUrl")
+    snapshotUrl = properties.getProperty("snapshotUrl")
+    signingKeyId = properties.getProperty("signingKeyId")
+    publicKeyPassword = properties.getProperty("publicKeyPassword")
+    secretKeyPath = properties.getProperty("secretKeyPath")
+
+    licenseName = 'The MIT License (MIT)'
+    licenseSite = 'https://opensource.org/licenses/MIT'
+    licenseCode = 'MIT'
+
+    developerId = 'microsoft'
+    developerName = 'Microsoft'
+    developerEmail = 'appcentersdk@microsoft.com'
+}
