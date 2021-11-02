@@ -12,3 +12,12 @@ buildNumber.properties
 # Intellij
 *.iml
 .idea/workspace.xml
+
+# Gradle
+local.properties
+gradle.properties
+.gradle/
+gradle/
+gradlew*
+build/
+screenshot*
